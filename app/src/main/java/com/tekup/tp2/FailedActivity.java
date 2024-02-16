@@ -30,8 +30,9 @@ public class FailedActivity extends AppCompatActivity {
 
         btnSendSms.setOnClickListener(v -> {
             Uri uri = Uri.parse("smsto:" + etSmsPhoneNumber.getText().toString());
-            Intent intent = new Intent(Intent.ACTION_SENDTO,uri);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             intent.putExtra("sms_body", String.format("Your score is %.2f", score));
+            startActivity(intent);
         });
     }
 }
